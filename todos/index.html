@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
  <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
    <title></title>
  </head>
- <body>
+ <body ng-controller="myCtrl">
+
+<input type="text" ng-model="newTodo">
+<button type="button" ng-click="addNewTodo(newTodo)">Submit</button>
+
+<ul>
+    <li ng-hide="hide"  ng-repeat="item in todos track by $index">
+      <button ng-click="removeTodo($index)" type="button" name="button">x</button>
+      <button type="button" ng-click="hide = !hide" name="button">Hide</button>
+      {{ item }}
+    </li>
+    <button ng-show="hide" type="button" ng-click="hide = !hide" name="button">Show</button>
+  </ul>
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js">
+</script>
+<script src="app.js"></script>
+  <script src="myCtrl.js"></script>
+</script>
 </body>
 </html>
